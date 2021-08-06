@@ -1,4 +1,6 @@
 ---
+name: 荒らし連合軍
+url: https://aarr-jp.github.io
 plugins:
 - jekyll-feed
 - jekyll-sitemap
