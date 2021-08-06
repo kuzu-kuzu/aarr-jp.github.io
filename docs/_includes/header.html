@@ -1,0 +1,19 @@
+<header>
+    <div class="HeaderContent">
+        <h1 class="HeaderLogo">
+            <a class="HeaderLogo__link" href="/">
+                <img class="HeaderLogo__item HeaderLogo__image" src="/assets/images/site-image.png" alt="ヘッダーロゴ">
+                <span class="HeaderLogo__item HeaderLogo__label">{{ site.name }}</span>
+            </a>
+        </h1>
+        <nav class="HeaderContent__item HeaderNav">
+            <ul class="HeaderContent__item HeaderNavList">
+                {% for item in site.data.primary_nav %}
+                <li class="HeaderContent__item HeaderNavList__item"><a
+                        class="HeaderNavList__link{% if page.url == item.link %} HeaderNavList__link--current{% endif %}"
+                        href="{{ item.link }}">{{ item.name }}</a> </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</header>

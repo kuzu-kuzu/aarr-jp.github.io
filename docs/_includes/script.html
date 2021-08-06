@@ -1,0 +1,14 @@
+<script>
+    !function () {
+        'use strict';
+        var styleElement = document.head.appendChild(document.createElement('style')),
+            footerContent = document.getElementsByClassName('FooterContent')[0],
+            resizeHandler = function () {
+                styleElement.textContent = '.Wrapper { padding-bottom: ' + footerContent.offsetHeight + 'px; }';
+            };
+
+        resizeHandler();
+
+        window.addEventListener('resize', resizeHandler);
+    }();
+</script>
