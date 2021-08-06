@@ -5,3 +5,8 @@ plugins:
 - jekyll-feed
 - jekyll-sitemap
 - jekyll-seo-tag
+defaults:
+- scope:
+    path: ''
+  values:
+    image: "/assets/images/site-image.png"
