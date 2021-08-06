@@ -2,6 +2,7 @@
 name: 荒らし連合軍
 description: 荒らし連合軍の公式サイトです。
 url: https://aarr-jp.github.io
+discord_invite: https://discord.com/invite/kantaicollection
 plugins:
   - jekyll-sitemap
   - jekyll-feed
