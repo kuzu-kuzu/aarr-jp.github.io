@@ -110,6 +110,7 @@ main {
 
 .Content {
     margin: 1em;
+    min-width: 400px;
     display: inline-block;
     text-align: left;
 }
@@ -179,5 +180,14 @@ main {
             background: #d20010;
             border-bottom: 2px solid #9f000c;
         }
+    }
+}
+
+.anchor {
+    text-decoration: none;
+    color: #00aff4;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
     }
 }
