@@ -1,0 +1,12 @@
+- name: Home
+  link: /
+- name: News
+  link: /news/
+- name: Article
+  link: /article/
+- name: Tool
+  link: /tool/
+- name: Community
+  link: /community/
+- name: Developer
+  link: /developer/

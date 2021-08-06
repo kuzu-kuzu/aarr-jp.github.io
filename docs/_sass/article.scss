@@ -1,0 +1,48 @@
+.Main__title {
+    color: #ffffff;
+}
+
+.Content {
+    margin: 1em;
+    display: inline-block;
+    text-align: left;
+}
+
+.ContentSection {
+    &__title{
+        margin: 0px;
+        padding: 0.5em;
+        border-left: solid 4px #dc143c;
+        line-height: 1;
+        color: #ffffff;
+        background-color: #808080;
+    }
+    &__content{
+        margin: 0px;
+        padding: 2em 1em 1em 1em;
+        color: #cacaca;
+    }
+}
+
+.DiscordWidgetWrapper {
+    text-align: center;
+}
+
+.SymbolWrapper {
+    text-align: center;
+}
+
+.Symbol {
+    border: solid 1px #808080;
+    display: inline-block;
+    &__image {
+        width: 216.9px;
+        height: 216.9px;
+        vertical-align: middle;
+    }
+    &__label {
+        font-size: 14px;
+        color: #1f1f1f;
+        background-color: #d3d3d3;
+    }
+}

@@ -1,0 +1,6 @@
+# Jekyll
+_site/
+docs/.jekyll-cache/
+
+# Ruby
+Gemfile.lock

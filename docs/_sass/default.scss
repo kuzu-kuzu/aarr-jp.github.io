@@ -1,0 +1,94 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+body {
+    background-color: #575757;
+}
+
+.Wrap {
+    min-height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+}
+
+header {
+    padding: 0.5em;
+    background-color: #1e1e1e;
+}
+
+.HeaderContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.HeaderLogo {
+    margin: 0px 40px 0px 0px;
+    display: inline-block;
+    &__item {
+        vertical-align: middle;
+    }
+    &__link {
+        text-decoration: none;
+    }
+    &__image {
+        width: 48px;
+        height: 48px;
+    }
+    &__label {
+        color: #ffffff;
+    }
+}
+
+.HeaderNav, .HeaderNavList, .HeaderNavList__item {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+}
+
+.HeaderNavList__link {
+    padding: 0.25em 0.5em;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 2;
+    font-weight: bold;
+    font-size: 16px;
+    color: #dedede;
+    &--current {
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px 0px #520b0b inset !important;
+        color: #ffffff !important;
+        background-color: #8b0000;
+    }
+    &:hover {
+        transition: color 0.25s;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px 0px #000000 inset;
+        color: #dc143c;
+    }
+}
+
+main {
+    display: block;
+    text-align: center;
+}
+
+.FooterContainer {
+    width: 100%;
+    bottom: 0px;
+    position: absolute;
+    text-align: center;
+    color: #c0c0c0;
+    background-color: #1e1e1e;
+    &__link{
+        text-decoration: none;
+        color: #ffffff;
+        &:hover{
+            transition: color 0.25s;
+            color: #ff0000;
+        }
+    }
+}
