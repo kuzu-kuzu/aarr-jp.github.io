@@ -4,6 +4,8 @@
         "browserconfig",
         "linebreak",
         "msapplication",
-        "mstile"
+        "mstile",
+        "nojekyll",
+        "peaceiris"
     ]
 }
