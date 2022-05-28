@@ -20,7 +20,7 @@ const Seo: FC<SeoProps> = seoProps => {
         type: asPath === '/' ? 'website' : 'article',
         images: [
           {
-            url: `${useBaseUrl()}/images/ogp-image.png`,
+            url: `${useBaseUrl()}/images/ogp-image.png?${Date.now()}`,
             width: 560,
             height: 315,
             alt: 'ogp image',
