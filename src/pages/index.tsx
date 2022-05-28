@@ -106,7 +106,7 @@ const Home: FC = () => {
               <Typography variant='h6'>AARRのシンボルマーク</Typography>
               <Box
                 component='img'
-                src='/images/logo.png'
+                src='/images/logo-216x216.png'
                 width={216}
                 sx={{
                   marginTop: '1rem',
