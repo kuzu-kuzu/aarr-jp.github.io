@@ -17,7 +17,7 @@ const Seo: FC<SeoProps> = seoProps => {
     <NextSeo
       {...seoProps}
       openGraph={{
-        site_name: useSiteName()
+        site_name: useSiteName(),
         url: href,
         type: asPath === '/' ? 'website' : 'article',
         images: [
