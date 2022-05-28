@@ -2,6 +2,7 @@ import { type FC } from 'react'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import useBaseUrl from '@/util/hooks/useBaseUrl'
+import useSiteName from '@/util/hooks/useSiteName'
 
 type SeoProps = Readonly<{
   title: string
@@ -16,6 +17,7 @@ const Seo: FC<SeoProps> = seoProps => {
     <NextSeo
       {...seoProps}
       openGraph={{
+        site_name: useSiteName()
         url: href,
         type: asPath === '/' ? 'website' : 'article',
         images: [
@@ -27,6 +29,9 @@ const Seo: FC<SeoProps> = seoProps => {
             type: 'image/png'
           }
         ]
+      }}
+      twitter={{
+        cardType: 'summary_large_image'
       }}
     />
   )
