@@ -21,8 +21,8 @@ const Seo: FC<SeoProps> = seoProps => {
         images: [
           {
             url: `${useBaseUrl()}/images/ogp-image.png`,
-            width: 1920,
-            height: 1080,
+            width: 560,
+            height: 315,
             alt: 'ogp image',
             type: 'image/png'
           }
