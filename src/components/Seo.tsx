@@ -17,7 +17,16 @@ const Seo: FC<SeoProps> = seoProps => {
       {...seoProps}
       openGraph={{
         url: href,
-        type: asPath === '/' ? 'website' : 'article'
+        type: asPath === '/' ? 'website' : 'article',
+        images: [
+          {
+            url: `${useBaseUrl}/images/ogp-image.png`,
+            width: 1920,
+            height: 1080,
+            alt: 'ogp image',
+            type: 'image/png'
+          }
+        ]
       }}
     />
   )
