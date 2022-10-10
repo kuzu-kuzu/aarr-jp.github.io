@@ -4,6 +4,8 @@ import Box from '@mui/material/Box'
 import { lighten, darken } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import NextLink from 'next/link'
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
+import Stack from '@mui/material/Stack'
 import MuiLink from '@mui/material/Link'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import useDiscordInvite from '@/util/hooks/useDiscordInvite'
@@ -96,24 +98,39 @@ const Home: FC = () => {
                   rel='noopener noreferrer'
                   underline='hover'
                   color='skyblue'
+                  fontSize='1.5rem'
                 >
-                  Discord
+                  招待リンク
                   <OpenInNewIcon color='disabled' sx={{ marginLeft: '0.1rem', verticalAlign: 'middle', fontSize: '1rem' }} />
                 </MuiLink>
               </NextLink>
             </Box>
-            <Box>
-              <Typography variant='h6'>AARRのシンボルマーク</Typography>
-              <Box
-                component='img'
-                src='/images/logo-216x216.png'
-                width={216}
-                sx={{
-                  marginTop: '1rem',
-                  verticalAlign: 'middle'
-                }}
-              />
-            </Box>
+            <Stack spacing={1}>
+              <Box>
+                <Typography variant='h6'>AARRのシンボルマーク</Typography>
+                <Box
+                  component='img'
+                  src='/images/logo-216x216.png'
+                  width={216}
+                  sx={{
+                    marginTop: '1rem',
+                    verticalAlign: 'middle'
+                  }}
+                />
+              </Box>
+              <NextLink href='/gallery/' passHref>
+                <MuiLink
+                  underline='hover'
+                  color='skyblue'
+                >
+                  他の画像も見る
+                  <KeyboardArrowRightIcon
+                    color='disabled'
+                    sx={{ verticalAlign: 'bottom' }}
+                  />
+                </MuiLink>
+              </NextLink>
+            </Stack>
           </Box>
         </Box>
         <Box

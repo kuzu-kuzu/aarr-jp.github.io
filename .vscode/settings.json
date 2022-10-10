@@ -1,11 +1,15 @@
 {
-    "cSpell.words": [
-        "aarr",
-        "browserconfig",
-        "linebreak",
-        "msapplication",
-        "mstile",
-        "nojekyll",
-        "peaceiris"
-    ]
+  "cSpell.words": [
+    "aarr",
+    "browserconfig",
+    "imgur",
+    "linebreak",
+    "msapplication",
+    "mstile",
+    "nojekyll",
+    "peaceiris"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  }
 }

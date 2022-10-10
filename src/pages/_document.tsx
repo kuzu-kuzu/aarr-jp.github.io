@@ -19,7 +19,6 @@ class Document extends NextDocument {
           <link
             rel='stylesheet'
             href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
-            integrity='sha512-wRS7a3LjN6HTA2VpU43oRUsUh19dMGSjqm/K7W9a783JBEBqvyJN48T5owW18bxCHTTBGXnRFafdeV4T39Avbw=='
             crossOrigin='anonymous'
             referrerPolicy='no-referrer'
           />
