@@ -39,7 +39,7 @@ const Home: FC = () => {
       />
       <Box
         sx={{
-          paddingBottom: `${footerHeight}px`,
+          paddingBottom: `calc(5rem + ${footerHeight}px)`,
           position: 'relative',
           boxSizing: 'border-box',
           minHeight: '100vh'
