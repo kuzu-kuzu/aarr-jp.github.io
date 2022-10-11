@@ -27,10 +27,10 @@ const Seo: FC<SeoProps> = ({
           images: [
             {
               alt: '',
-              height: 1920,
+              height: 1080,
               type: 'image/png',
               url: `${BASE_URL}/images/ogp-image-1920x1080.png`,
-              width: 1080
+              width: 1920
             }
           ],
           site_name: SITE_NAME,
