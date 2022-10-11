@@ -49,7 +49,7 @@ const Home: FC = () => {
             <Grid item width={gridItemWidth}>
               <Typography variant='h5' component='h2'>AARRとは？</Typography>
               <Typography color='text.secondary'>
-                AARR（Accurate And Revelatory Reporter）は、ボランティアによる洗練されたスキルやツールで、Discordのトラブルやネットいじめを正確に報告する団体です。
+                AARR（Accurate And Revelatory Reporter）は、ボランティアによる洗練されたスキルやツールで、Discordのトラブルやネットいじめを正確に通報する団体です。
                 <br />
                 2021年に荒らし連合から派生しました。
               </Typography>
