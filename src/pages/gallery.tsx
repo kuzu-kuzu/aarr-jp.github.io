@@ -56,7 +56,7 @@ const GalleryPage: FC = () => {
       />
       <CommonDialog
         open={typeof image !== 'undefined'}
-        message='この画像は環境によって重くなる可能性があります'
+        message='この画像は環境によっては重くなる可能性があります'
         confirmButtonText='開きます'
         onCancel={() => {
           setImage(undefined);
