@@ -23,6 +23,7 @@ const Document: FC = () => (
         crossOrigin='anonymous'
         referrerPolicy='no-referrer'
       />
+      <meta name='google-site-verification' content='8wcUGIVEzfQjjj-0TTeyXEzdv9xKiIsJ-gfVdU_ngGA' />
     </Head>
     <body>
       <Main />
