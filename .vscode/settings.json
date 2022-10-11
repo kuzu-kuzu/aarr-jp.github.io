@@ -4,10 +4,17 @@
     "browserconfig",
     "imgur",
     "linebreak",
+    "localforage",
     "msapplication",
     "mstile",
+    "multilines",
+    "nextjs",
     "nojekyll",
-    "peaceiris"
+    "peaceiris",
+    "predev",
+    "prestart",
+    "progressbar",
+    "uprp"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll": true

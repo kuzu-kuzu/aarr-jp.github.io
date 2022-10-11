@@ -1,18 +1,19 @@
-import { type FC } from 'react'
-import { type AppProps } from 'next/app'
-import { DefaultSeo } from 'next-seo'
-import CssBaseline from '@mui/material/CssBaseline'
-import ThemeModeProvider from '@/components/ThemeModeProvider'
-import defaultSeoProps from '~/next-seo.config'
+import { DefaultSeo } from 'next-seo';
+import { type AppProps } from 'next/app';
+import { type FC } from 'react';
+import CommonProvider from '~/components/CommonProvider';
+import SpacingLayout from '~/layouts/spacing';
+import defaultSeoProps from '~next-seo.config';
 
 const App: FC<AppProps> = ({ Component, pageProps }) => (
   <>
     <DefaultSeo {...defaultSeoProps} />
-    <ThemeModeProvider>
-      <CssBaseline />
-      <Component {...pageProps} />
-    </ThemeModeProvider>
+    <CommonProvider>
+      <SpacingLayout>
+        <Component {...pageProps} />
+      </SpacingLayout>
+    </CommonProvider>
   </>
-)
+);
 
-export default App
+export default App;

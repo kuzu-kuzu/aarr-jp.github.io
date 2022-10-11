@@ -1,41 +1,47 @@
-import { type FC } from 'react'
-import { NextSeo } from 'next-seo'
-import { useRouter } from 'next/router'
-import useBaseUrl from '@/util/hooks/useBaseUrl'
-import useSiteName from '@/util/hooks/useSiteName'
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
+import { type FC } from 'react';
 
-type SeoProps = Readonly<{
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME;
+
+type SeoProps = Readonly<Partial<{
+  description: string,
   title: string
-  description: string
-}>
+}>>;
 
-const Seo: FC<SeoProps> = seoProps => {
-  const { asPath } = useRouter()
-  const href = `${useBaseUrl()}${asPath}`
+const Seo: FC<SeoProps> = ({
+  title,
+  description
+}) => {
+  const { asPath } = useRouter();
 
   return (
-    <NextSeo
-      {...seoProps}
-      openGraph={{
-        site_name: useSiteName(),
-        url: href,
-        type: asPath === '/' ? 'website' : 'article',
-        images: [
-          {
-            url: `${useBaseUrl()}/images/ogp-image.png?${Date.now()}`,
-            width: 1920,
-            height: 1080,
-            alt: 'ogp image',
-            type: 'image/png'
-          }
-        ]
-      }}
-      twitter={{
-        cardType: 'summary_large_image'
-      }}
-    />
-  )
-}
+    <>
+      <NextSeo
+        title={title}
+        description={description}
+        twitter={{ cardType: 'summary_large_image' }}
+        openGraph={{
+          description,
+          images: [
+            {
+              alt: '',
+              height: 1920,
+              type: 'image/png',
+              url: `${BASE_URL}/images/ogp-image-1920x1080.png`,
+              width: 1080
+            }
+          ],
+          site_name: SITE_NAME,
+          title: typeof title === 'undefined' ? undefined : `${title} | ${SITE_NAME}`,
+          type: asPath === '/' ? 'website' : 'article',
+          url: `${BASE_URL}${asPath}`
+        }}
+      />
+    </>
+  );
+};
 
-export default Seo
-export { type SeoProps }
+export default Seo;
+export { type SeoProps };

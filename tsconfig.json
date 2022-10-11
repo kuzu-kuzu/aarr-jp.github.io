@@ -1,19 +1,11 @@
 {
   "compilerOptions": {
     "target": "ESNext",
+    "jsx": "preserve",
     "module": "ESNext",
     "moduleResolution": "Node",
     "strict": true,
-    "jsx": "preserve",
-    "baseUrl": "./",
-    "paths": {
-      "~/*": [
-        "*"
-      ],
-      "@/*": [
-        "src/*"
-      ]
-    },
+    "forceConsistentCasingInFileNames": true,
     "lib": [
       "DOM",
       "DOM.Iterable",
@@ -21,21 +13,31 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "baseUrl": "./",
+    "paths": {
+      "~/*": [
+        "src/*"
+      ],
+      "~next-seo.config": [
+        "next-seo.config.ts"
+      ]
+    }
   },
   "include": [
-    "next-env.d.ts",
-    "next-seo.config.ts",
-    "next.config.mjs",
-    "src/**/*.ts",
-    "src/**/*.tsx"
+    "./src/**/*.tsx",
+    "./src/**/*.ts",
+    "./src/@types/**/*.d.ts",
+    "./next.config.mjs",
+    "./next-seo.config.ts",
+    "./next-sitemap.config.mjs",
+    "./next-env.d.ts"
   ],
   "exclude": [
-    "node_modules"
+    "./node_modules/"
   ]
 }

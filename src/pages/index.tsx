@@ -1,81 +1,60 @@
-import { type FC, useRef, useState, useEffect } from 'react'
-import Seo from '@/components/Seo'
-import Box from '@mui/material/Box'
-import { lighten, darken } from '@mui/material/styles'
-import Typography from '@mui/material/Typography'
-import NextLink from 'next/link'
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
-import Stack from '@mui/material/Stack'
-import MuiLink from '@mui/material/Link'
-import OpenInNewIcon from '@mui/icons-material/OpenInNew'
-import useDiscordInvite from '@/util/hooks/useDiscordInvite'
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import Alert from '@mui/material/Alert';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import MuiLink from '@mui/material/Link';
+import Snackbar from '@mui/material/Snackbar';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import NextLink from 'next/link';
+import { type FC, useState } from 'react';
+import LinkShare from '~/components/LinkShare';
+import Seo from '~/components/Seo';
+import { useDiscordInvite } from '~/hooks/useDiscordInvite';
+
+const DISCORD_INVITE_CODE = process.env.NEXT_PUBLIC_DISCORD_INVITE_CODE;
+const SITE_DESCRIPTION = process.env.NEXT_PUBLIC_SITE_DESCRIPTION;
 
 const Home: FC = () => {
-  const [footerHeight, setFooterHeight] = useState(0)
-  const footerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (!footerRef.current) {
-        return
-      }
-
-      setFooterHeight(footerRef.current.offsetHeight)
-    }
-
-    window.addEventListener('resize', handleResize)
-    handleResize()
-
-    return () => window.removeEventListener('resize', handleResize)
-  })
-
-  const description = 'AARRの公式サイトでは、活動内容や実績などAARRの最新情報をお届けします。'
+  const theme = useTheme();
+  const [discordInviteCopyStatus, setDiscordInviteCopyStatus] = useState<'error' | 'success'>();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const gridItemWidth = isSmallScreen ? '100%' : '50%';
+  const discordInvite = useDiscordInvite();
 
   return (
     <>
-      <Seo
-        title='ホーム'
-        description={description}
-      />
-      <Box
-        sx={{
-          paddingBottom: `calc(5rem + ${footerHeight}px)`,
-          position: 'relative',
-          boxSizing: 'border-box',
-          minHeight: '100vh'
-        }}
+      <Seo />
+      <Snackbar
+        onClose={() => setDiscordInviteCopyStatus(undefined)}
+        open={typeof discordInviteCopyStatus !== 'undefined'}
+        autoHideDuration={2000}
       >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '2rem',
-            width: '50%',
-            margin: '0 auto',
-            padding: '1rem',
-            '@media screen and (max-width:1024px)': {
-              width: '100%'
-            }
-          }}
+        <Alert
+          variant='filled'
+          sx={{ width: '100%' }}
+          severity={discordInviteCopyStatus}
         >
-          <Box>
-            <Typography variant='h3' component='h1'>AARR</Typography>
-            <Typography color='text.secondary'>{description}</Typography>
-          </Box>
-          <Box
-            sx={{
-              display: 'grid',
-              columnGap: '1rem',
-              rowGap: '1rem',
-              gridTemplateRows: '50% 50%',
-              gridTemplateColumns: '50% 50%'
-            }}
-          >
-            <Box>
+          {discordInviteCopyStatus === 'success' && '招待リンクをコピーしました'}
+          {discordInviteCopyStatus === 'error' && '招待リンクをコピーできませんでした'}
+        </Alert>
+      </Snackbar>
+      <Stack spacing={4} paddingBottom='2rem'>
+        <Typography color='text.secondary'>{SITE_DESCRIPTION}</Typography>
+        <Box>
+          <Grid container spacing={4}>
+            <Grid item width={gridItemWidth}>
               <Typography variant='h5' component='h2'>AARRとは？</Typography>
-              <Typography color='text.secondary'>AARR（Accurate And Revelatory Reporter）は、ボランティアによる洗練されたスキルやツールで、Discordのトラブルやネットいじめを正確に報告する団体です。</Typography>
-            </Box>
-            <Box>
+              <Typography color='text.secondary'>
+                AARR（Accurate And Revelatory Reporter）は、ボランティアによる洗練されたスキルやツールで、Discordのトラブルやネットいじめを正確に報告する団体です。
+                <br />
+                2021年に荒らし連合から派生しました。
+              </Typography>
+            </Grid>
+            <Grid item width={gridItemWidth}>
               <Typography variant='h5' component='h2'>実績</Typography>
               <Box
                 component='ul'
@@ -84,87 +63,82 @@ const Home: FC = () => {
                   paddingInlineStart: '1rem'
                 }}
               >
-                {['大手ショップのRShopを10日連続停止。', 'GhostHaxなどの大規模荒らしサーバーの停止。', '悪意のあるサーバーを停止した数は数十件以上。'].map((v, i) => (
-                  <li key={i}><Typography color='text.secondary'>{v}</Typography></li>
+                {[
+                  '大手ショップのRShopを10日連続停止。',
+                  'GhostHaxなどの大規模荒らしサーバーの停止。',
+                  '悪意のあるサーバーを停止した数は数十件以上。'
+                ].map(v => (
+                  <li key={v}><Typography color='text.secondary'>{v}</Typography></li>
                 ))}
               </Box>
-            </Box>
-            <Box>
-              <Typography variant='h5' component='h2'>AARRのDiscordに参加</Typography>
-              <Typography color='text.secondary'>AARRはあなたの参加を待っています。</Typography>
-              <NextLink href={useDiscordInvite()} passHref>
-                <MuiLink
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  underline='hover'
-                  color='skyblue'
-                  fontSize='1.5rem'
-                >
-                  招待リンク
-                  <OpenInNewIcon color='disabled' sx={{ marginLeft: '0.1rem', verticalAlign: 'middle', fontSize: '1rem' }} />
-                </MuiLink>
-              </NextLink>
-            </Box>
-            <Stack spacing={1}>
-              <Box>
-                <Typography variant='h6'>AARRのシンボルマーク</Typography>
-                <Box
-                  component='img'
-                  src='/images/logo-216x216.png'
-                  width={216}
-                  sx={{
-                    marginTop: '1rem',
-                    verticalAlign: 'middle'
+            </Grid>
+            <Grid item width={gridItemWidth}>
+              <Stack spacing={2}>
+                <Box>
+                  <Typography variant='h5' component='h2'>AARRのDiscordに参加</Typography>
+                  <Typography color='text.secondary'>AARRはあなたの参加を待っています。</Typography>
+                </Box>
+                <LinkShare
+                  href={discordInvite}
+                  onClick={async href => {
+                    setDiscordInviteCopyStatus(undefined);
+
+                    try {
+                      await window.navigator.clipboard.writeText(href);
+                      setDiscordInviteCopyStatus('success');
+                    } catch {
+                      setDiscordInviteCopyStatus('error');
+                    }
                   }}
-                />
-              </Box>
-              <NextLink href='/gallery/' passHref>
-                <MuiLink
-                  underline='hover'
-                  color='skyblue'
                 >
-                  他の画像も見る
-                  <KeyboardArrowRightIcon
-                    color='disabled'
-                    sx={{ verticalAlign: 'bottom' }}
+                  <NextLink href={discordInvite} passHref>
+                    <MuiLink
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      underline='hover'
+                      color='skyblue'
+                      fontSize='large'
+                    >
+                      discord.gg/{DISCORD_INVITE_CODE}
+                      <OpenInNewIcon color='disabled' sx={{ marginLeft: '0.1rem', verticalAlign: 'middle' }} />
+                    </MuiLink>
+                  </NextLink>
+                </LinkShare>
+              </Stack>
+            </Grid>
+            <Grid item width={gridItemWidth}>
+              <Stack spacing={2} alignItems='flex-start'>
+                <Box>
+                  <Typography variant='h6'>AARRのシンボルマーク</Typography>
+                  <Box
+                    component='img'
+                    src='/images/logo-216x216.png'
+                    width={216}
+                    sx={{
+                      marginTop: '1rem',
+                      verticalAlign: 'middle'
+                    }}
                   />
-                </MuiLink>
-              </NextLink>
-            </Stack>
-          </Box>
+                </Box>
+                <NextLink href='/gallery/' passHref>
+                  <MuiLink
+                    underline='hover'
+                    color='skyblue'
+                  >
+                    他の画像も見る
+                    <KeyboardArrowRightIcon
+                      color='disabled'
+                      sx={{ verticalAlign: 'bottom' }}
+                    />
+                  </MuiLink>
+                </NextLink>
+              </Stack>
+            </Grid>
+          </Grid>
         </Box>
-        <Box
-          ref={footerRef}
-          sx={{
-            width: '100%',
-            position: 'absolute',
-            bottom: 0,
-            padding: '1rem',
-            backgroundColor: ({ palette: { mode, background } }) => {
-              const xen = mode === 'light' ? darken : lighten
-
-              return xen(background.paper, 0.1)
-            }
-          }}
-        >
-          <footer>
-            <Box
-              sx={{
-                width: '50%',
-                height: '100%',
-                margin: '0 auto',
-                '@media screen and (max-width: 1024px)': {
-                  width: '100%'
-                }
-              }}
-            >
-              <Typography fontSize='small' color='text.secondary'>© aarr-jp 2021</Typography>
-            </Box>
-          </footer>
-        </Box>
-      </Box>
+      </Stack>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
