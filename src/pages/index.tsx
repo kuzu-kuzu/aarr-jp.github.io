@@ -109,7 +109,7 @@ const Home: FC = () => {
             <Grid item width={gridItemWidth}>
               <Stack spacing={2} alignItems='flex-start'>
                 <Box>
-                  <Typography variant='h6'>AARRのシンボルマーク</Typography>
+                  <Typography component='h2' variant='h6'>AARRのシンボルマーク</Typography>
                   <Box
                     alt=''
                     component='img'
