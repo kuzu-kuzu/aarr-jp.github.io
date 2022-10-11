@@ -38,9 +38,7 @@ const ImgurImageShowcase: FC<ImgurImageShowcaseProps> = ({ images, title }) => {
         open={typeof image !== 'undefined'}
         message='この画像は環境によっては重くなる可能性があります'
         confirmButtonText='開きます'
-        onCancel={() => {
-          setImage(undefined);
-        }}
+        onCancel={() => setImage(undefined)}
         onConfirm={() => {
           setImage(undefined);
 
@@ -78,6 +76,8 @@ const ImgurImageShowcase: FC<ImgurImageShowcaseProps> = ({ images, title }) => {
                         sx={{ verticalAlign: 'middle' }}
                         crossOrigin='anonymous'
                         component='img'
+                        width={160}
+                        height={160}
                         src={`https://i.imgur.com/${imgurId}b${ext}`}
                       />
                     </CardActionArea>
