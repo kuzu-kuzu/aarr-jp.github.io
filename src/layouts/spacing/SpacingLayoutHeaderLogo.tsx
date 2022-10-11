@@ -9,7 +9,7 @@ const SpacingLayoutHeaderLogo: FC = () => {
   const { palette } = useTheme();
 
   return (
-    <Box>
+    <Box width='fit-content'>
       <NextLink href='/' passHref>
         <MuiLink
           aria-label='ホームに戻る'

@@ -1,3 +1,4 @@
+import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { type FC } from 'react';
@@ -12,6 +13,8 @@ const GalleryPage: FC = () => (
     />
 
     <Stack spacing={2} paddingBottom='2rem'>
+      <Divider />
+      <Typography component='h2' fontSize='1.75rem'>ギャラリー</Typography>
       <Typography fontSize='small' color='text.secondary'>
         画像をクリック（またはタップ）でオリジナルサイズの画像を開く
       </Typography>
