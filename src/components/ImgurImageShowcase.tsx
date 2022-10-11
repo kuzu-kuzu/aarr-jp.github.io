@@ -74,6 +74,7 @@ const ImgurImageShowcase: FC<ImgurImageShowcaseProps> = ({ images, title }) => {
                   <Stack spacing={1}>
                     <CardActionArea onClick={() => deviceWarning ? setImage(image) : openImage(image)}>
                       <Box
+                        alt=''
                         sx={{ verticalAlign: 'middle' }}
                         crossOrigin='anonymous'
                         component='img'

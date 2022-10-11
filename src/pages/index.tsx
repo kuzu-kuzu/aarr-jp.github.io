@@ -111,6 +111,7 @@ const Home: FC = () => {
                 <Box>
                   <Typography variant='h6'>AARRのシンボルマーク</Typography>
                   <Box
+                    alt=''
                     component='img'
                     src='/images/logo-216x216.png'
                     width={216}
