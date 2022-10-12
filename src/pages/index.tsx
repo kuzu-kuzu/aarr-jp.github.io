@@ -7,8 +7,6 @@ import MuiLink from '@mui/material/Link';
 import Snackbar from '@mui/material/Snackbar';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import NextLink from 'next/link';
 import { type FC, useState } from 'react';
 import LinkShare from '~/components/LinkShare';
@@ -19,10 +17,7 @@ const DISCORD_INVITE_CODE = process.env.NEXT_PUBLIC_DISCORD_INVITE_CODE;
 const SITE_DESCRIPTION = process.env.NEXT_PUBLIC_SITE_DESCRIPTION;
 
 const Home: FC = () => {
-  const theme = useTheme();
   const [discordInviteCopyStatus, setDiscordInviteCopyStatus] = useState<'error' | 'success'>();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-  const gridItemWidth = isSmallScreen ? '100%' : '50%';
   const discordInvite = useDiscordInvite();
 
   return (
@@ -46,7 +41,7 @@ const Home: FC = () => {
         <Typography color='text.secondary'>{SITE_DESCRIPTION}</Typography>
         <Box>
           <Grid container spacing={4}>
-            <Grid item width={gridItemWidth}>
+            <Grid item sm={6}>
               <Typography variant='h5' component='h2'>AARRとは？</Typography>
               <Typography color='text.secondary'>
                 AARR（Accurate And Revelatory Reporter）は、ボランティアによる洗練されたスキルやツールで、Discordのトラブルやネットいじめを正確に通報する団体です。
@@ -54,7 +49,7 @@ const Home: FC = () => {
                 2021年に荒らし連合から派生しました。
               </Typography>
             </Grid>
-            <Grid item width={gridItemWidth}>
+            <Grid item sm={6}>
               <Typography variant='h5' component='h2'>実績</Typography>
               <Box
                 component='ul'
@@ -72,7 +67,7 @@ const Home: FC = () => {
                 ))}
               </Box>
             </Grid>
-            <Grid item width={gridItemWidth}>
+            <Grid item sm={6}>
               <Stack spacing={2}>
                 <Box>
                   <Typography variant='h5' component='h2'>AARRのDiscordに参加</Typography>
@@ -106,7 +101,7 @@ const Home: FC = () => {
                 </LinkShare>
               </Stack>
             </Grid>
-            <Grid item width={gridItemWidth}>
+            <Grid item sm={6}>
               <Stack spacing={2} alignItems='flex-start'>
                 <Box>
                   <Typography component='h2' variant='h6'>AARRのシンボルマーク</Typography>
