@@ -16,7 +16,9 @@ const GalleryPage: FC = () => (
       <Divider />
       <Typography component='h2' fontSize='1.75rem'>ギャラリー</Typography>
       <Typography fontSize='small' color='text.secondary'>
-        画像をクリック（またはタップ）でオリジナルサイズの画像を開く
+        画像をクリック（またはタップ）でオリジナルサイズの画像を開けます。
+        <br />
+        一部の画像はデバイスによっては重くなる可能性があります。
       </Typography>
       <Stack spacing={4}>
         <ImgurImageShowcase

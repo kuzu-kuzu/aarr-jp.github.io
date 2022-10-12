@@ -2,8 +2,10 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
+import MuiLink from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import NextLink from 'next/link';
 import { type FC, useState } from 'react';
 import CommonDialog from '~/components/CommonDialog';
 
@@ -70,17 +72,28 @@ const ImgurImageShowcase: FC<ImgurImageShowcaseProps> = ({ images, title }) => {
                   }}
                 >
                   <Stack spacing={1}>
-                    <CardActionArea onClick={() => deviceWarning ? setImage(image) : openImage(image)}>
-                      <Box
-                        alt=''
-                        sx={{ verticalAlign: 'middle' }}
-                        crossOrigin='anonymous'
-                        component='img'
-                        width={160}
-                        height={160}
-                        src={`https://i.imgur.com/${imgurId}b${ext}`}
-                      />
-                    </CardActionArea>
+                    <NextLink
+                      passHref
+                      href={`https://i.imgur.com/${imgurId}${ext}`}
+                    >
+                      <MuiLink
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        onClick={ev => ev.preventDefault()}
+                      >
+                        <CardActionArea onClick={() => deviceWarning ? setImage(image) : openImage(image)}>
+                          <Box
+                            alt=''
+                            sx={{ verticalAlign: 'middle' }}
+                            crossOrigin='anonymous'
+                            component='img'
+                            width={160}
+                            height={160}
+                            src={`https://i.imgur.com/${imgurId}b${ext}`}
+                          />
+                        </CardActionArea>
+                      </MuiLink>
+                    </NextLink>
                     <Typography color='text.secondary'>{message}</Typography>
                   </Stack>
                 </CardContent>
