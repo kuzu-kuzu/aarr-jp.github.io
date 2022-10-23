@@ -79,36 +79,41 @@ const DiscordPage: FC = () => {
               AARRのDiscordコミュニティであり、ただ雑談がしたいだけの人もいます。
               <br />
               お互い不快な思いをしないように、NSFWコンテンツを共有する際は次の項目を守ってください。
+              <br />
+              また、ガイドラインは事前の告知なしで変更する可能性があります。
             </Box>
           </Stack>
-          <Box
-            component='ul'
-            sx={{
-              'li:not(:first-child)': {
-                margin: '1rem 0'
-              },
-              margin: 0,
-              paddingInlineStart: '1rem'
-            }}
-          >
-            {[
-              { title: 'Discordが表示できるファイルの形式で共有しましょう。' },
-              {
-                description: 'これは内容によっては三次元では違法性があるためです。',
-                title: '二次元のみで、三次元のコンテンツを共有してはいけません。'
-              },
-              { title: 'ゴア表現（流血など）や排泄物を含むコンテンツを共有してはいけません。' },
-              { title: 'NSFWコンテンツをNSFWとしてマークされた専用のチャンネル以外で共有してはいけません。' },
-              { title: '二次元であっても児童を性的に描写したコンテンツを共有してはいけません。' }
-            ].map(({ title, description }) => (
-              <li key={title}>
-                <Typography fontWeight='bold'>{title}</Typography>
-                {description?.split(/\r?\n/).map(line => (
-                  <Typography key={line}>{line}</Typography>
-                ))}
-              </li>
-            ))}
-          </Box>
+          <Stack spacing={2}>
+            <Typography color='text.secondary'>最終更新日：2022年10月24日</Typography>
+            <Box
+              component='ul'
+              sx={{
+                'li:not(:first-of-type)': {
+                  margin: '1rem 0'
+                },
+                margin: 0,
+                paddingInlineStart: '1rem'
+              }}
+            >
+              {[
+                { title: 'Discordが表示できるファイルの形式で共有しましょう。' },
+                {
+                  description: 'これは内容によっては三次元では違法性があるためです。',
+                  title: '二次元のみで、三次元のコンテンツを共有してはいけません。'
+                },
+                { title: 'ゴア表現（流血など）や排泄物を含むコンテンツを共有してはいけません。' },
+                { title: 'NSFWコンテンツをNSFWとしてマークされた専用のチャンネル以外で共有してはいけません。' },
+                { title: '二次元であっても児童を性的に描写したコンテンツを共有してはいけません。' }
+              ].map(({ title, description }) => (
+                <li key={title}>
+                  <Typography fontWeight='bold'>{title}</Typography>
+                  {description?.split(/\r?\n/).map(line => (
+                    <Typography key={line}>{line}</Typography>
+                  ))}
+                </li>
+              ))}
+            </Box>
+          </Stack>
           <Stack spacing={2}>
             <Typography component='h2' variant='h6'>用語の定義</Typography>
             <Box
