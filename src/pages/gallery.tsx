@@ -11,7 +11,6 @@ const GalleryPage: FC = () => (
       title='ギャラリー'
       description='コミュニティの画像などを置いています。'
     />
-
     <Stack spacing={2} paddingBottom='2rem'>
       <Divider />
       <Typography component='h2' fontSize='1.75rem'>ギャラリー</Typography>
