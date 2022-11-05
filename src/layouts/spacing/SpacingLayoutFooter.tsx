@@ -1,6 +1,9 @@
 import Box from '@mui/material/Box';
+import MuiLink from '@mui/material/Link';
+import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { darken, lighten } from '@mui/material/styles';
+import NextLink from 'next/link';
 import { type FC } from 'react';
 import Spacer from '~/components/Spacer';
 
@@ -19,7 +22,21 @@ const SpacingLayoutFooter: FC = () => (
   >
     <footer>
       <Spacer>
-        <Typography fontSize='small' color='text.secondary'>© aarr-jp 2021</Typography>
+        <Stack direction='row' spacing={2}>
+          <Typography fontSize='small' color='text.secondary'>© aarr-jp 2021</Typography>
+          <NextLink
+            passHref
+            href='/legal/privacy-policy/'
+          >
+            <MuiLink
+              underline='hover'
+              color='#a0d8ef'
+              fontSize='small'
+            >
+              プライバシーポリシー
+            </MuiLink>
+          </NextLink>
+        </Stack>
       </Spacer>
     </footer>
   </Box>

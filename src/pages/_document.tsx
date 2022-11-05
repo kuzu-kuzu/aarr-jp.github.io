@@ -1,5 +1,6 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 import { type FC } from 'react';
+import GoogleSiteVerification from '~/components/GoogleSiteVerification';
 
 const PRIMARY_MAIN_COLOR = process.env.NEXT_PUBLIC_PRIMARY_MAIN_COLOR;
 
@@ -23,7 +24,7 @@ const Document: FC = () => (
         crossOrigin='anonymous'
         referrerPolicy='no-referrer'
       />
-      <meta name='google-site-verification' content='8wcUGIVEzfQjjj-0TTeyXEzdv9xKiIsJ-gfVdU_ngGA' />
+      <GoogleSiteVerification />
     </Head>
     <body>
       <Main />
